@@ -1,17 +1,29 @@
-export type OttOption = { id: string; name: string; monthly: number; color: string };
+export type OttOption = {
+  id: string;
+  name: string;
+  monthly: number;
+  color: string;
+  /** Simple Icons slug for the real brand logo (served from cdn.simpleicons.org). */
+  slug: string;
+};
 
 export const OTT_CATALOG: OttOption[] = [
-  { id: "netflix", name: "Netflix", monthly: 649, color: "#E50914" },
-  { id: "prime", name: "Prime Video", monthly: 299, color: "#00A8E1" },
-  { id: "hotstar", name: "JioHotstar", monthly: 299, color: "#1F80E0" },
-  { id: "zee5", name: "ZEE5", monthly: 199, color: "#8B1FCB" },
-  { id: "sonyliv", name: "Sony LIV", monthly: 299, color: "#0F1FA8" },
-  { id: "appletv", name: "Apple TV+", monthly: 99, color: "#111111" },
-  { id: "chatgpt", name: "ChatGPT Plus", monthly: 1999, color: "#10A37F" },
-  { id: "linkedin", name: "LinkedIn Premium", monthly: 1099, color: "#0A66C2" },
-  { id: "spotify", name: "Spotify Premium", monthly: 119, color: "#1DB954" },
-  { id: "youtube", name: "YouTube Premium", monthly: 149, color: "#FF0000" },
+  { id: "netflix",  name: "Netflix",           monthly: 649,  color: "#E50914", slug: "netflix" },
+  { id: "prime",    name: "Prime Video",       monthly: 299,  color: "#00A8E1", slug: "primevideo" },
+  { id: "hotstar",  name: "JioHotstar",        monthly: 299,  color: "#1F80E0", slug: "hotstar" },
+  { id: "zee5",     name: "ZEE5",              monthly: 199,  color: "#8B1FCB", slug: "zee5" },
+  { id: "sonyliv",  name: "Sony LIV",          monthly: 299,  color: "#0F1FA8", slug: "sonyliv" },
+  { id: "appletv",  name: "Apple TV+",         monthly: 99,   color: "#111111", slug: "appletv" },
+  { id: "chatgpt",  name: "ChatGPT Plus",      monthly: 1999, color: "#10A37F", slug: "openai" },
+  { id: "linkedin", name: "LinkedIn Premium",  monthly: 1099, color: "#0A66C2", slug: "linkedin" },
+  { id: "spotify",  name: "Spotify Premium",   monthly: 119,  color: "#1DB954", slug: "spotify" },
+  { id: "youtube",  name: "YouTube Premium",   monthly: 149,  color: "#FF0000", slug: "youtube" },
 ];
+
+/** Real brand logo URL for an OTT option. Uses Simple Icons CDN (free, SVG, brand-coloured). */
+export function ottLogoUrl(o: OttOption): string {
+  return `https://cdn.simpleicons.org/${o.slug}/${o.color.replace("#", "")}`;
+}
 
 export type Bundle = {
   id: string;
