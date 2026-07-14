@@ -63,46 +63,46 @@
 
 :root {
   --radius: 0.625rem;
-  /* Altura — light, trust-forward palette */
-  --background: oklch(0.99 0.008 90);       /* warm cream */
-  --foreground: oklch(0.24 0.03 240);        /* deep ink blue */
+  /* Airtel — signature red on clean white, with deep ink */
+  --background: oklch(1 0 0);                /* pure white */
+  --foreground: oklch(0.16 0.01 20);         /* near-black ink */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.03 240);
+  --card-foreground: oklch(0.16 0.01 20);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.03 240);
-  --primary: oklch(0.55 0.14 235);           /* trust blue */
-  --primary-foreground: oklch(0.99 0.005 240);
-  --secondary: oklch(0.95 0.04 175);         /* soft mint */
-  --secondary-foreground: oklch(0.32 0.06 200);
-  --muted: oklch(0.96 0.012 90);
-  --muted-foreground: oklch(0.5 0.03 240);
-  --accent: oklch(0.9 0.08 40);              /* warm coral highlight */
-  --accent-foreground: oklch(0.28 0.08 30);
-  --destructive: oklch(0.62 0.2 27);
-  --destructive-foreground: oklch(0.99 0.005 240);
-  --border: oklch(0.92 0.015 220);
-  --input: oklch(0.94 0.012 220);
-  --ring: oklch(0.65 0.12 230);
+  --popover-foreground: oklch(0.16 0.01 20);
+  --primary: oklch(0.58 0.24 27);            /* Airtel red */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0.008 20);         /* soft pink-tinted grey */
+  --secondary-foreground: oklch(0.22 0.02 20);
+  --muted: oklch(0.965 0.005 20);
+  --muted-foreground: oklch(0.48 0.02 20);
+  --accent: oklch(0.94 0.06 30);             /* pale red wash */
+  --accent-foreground: oklch(0.35 0.15 27);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.008 20);
+  --input: oklch(0.94 0.006 20);
+  --ring: oklch(0.62 0.22 27);
   --success: oklch(0.66 0.14 155);
-  --savings: oklch(0.7 0.13 155);
-  --gradient-hero: linear-gradient(135deg, oklch(0.96 0.04 200) 0%, oklch(0.97 0.05 90) 60%, oklch(0.94 0.06 30) 100%);
-  --gradient-primary: linear-gradient(135deg, oklch(0.6 0.14 230), oklch(0.7 0.13 195));
-  --gradient-mint: linear-gradient(135deg, oklch(0.95 0.05 175), oklch(0.92 0.06 145));
-  --shadow-soft: 0 10px 40px -18px color-mix(in oklab, oklch(0.55 0.14 235) 30%, transparent);
-  --shadow-card: 0 2px 20px -8px color-mix(in oklab, oklch(0.4 0.05 240) 12%, transparent);
+  --savings: oklch(0.66 0.14 155);
+  --gradient-hero: linear-gradient(135deg, oklch(0.98 0.02 25) 0%, oklch(0.96 0.06 30) 55%, oklch(0.88 0.14 27) 100%);
+  --gradient-primary: linear-gradient(135deg, oklch(0.58 0.24 27), oklch(0.48 0.22 20));
+  --gradient-mint: linear-gradient(135deg, oklch(0.97 0.03 25), oklch(0.93 0.08 30));
+  --shadow-soft: 0 10px 40px -18px color-mix(in oklab, oklch(0.58 0.24 27) 35%, transparent);
+  --shadow-card: 0 2px 20px -8px color-mix(in oklab, oklch(0.2 0.02 20) 14%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --sidebar: oklch(0.16 0.01 20);            /* Airtel black rail */
+  --sidebar-foreground: oklch(0.98 0.005 20);
+  --sidebar-primary: oklch(0.58 0.24 27);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.22 0.02 20);
+  --sidebar-accent-foreground: oklch(0.98 0.005 20);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.58 0.24 27);
 }
 
 .dark {
