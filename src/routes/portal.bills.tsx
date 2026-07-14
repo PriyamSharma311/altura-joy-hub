@@ -6,7 +6,7 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Download, FileDown, Receipt } from "lucide-react";
-import { DEMO_BILLS, type Bill } from "@/lib/demo-data";
+import { DEMO_BILLS, OTT_CATALOG, ottLogoUrl, type Bill } from "@/lib/demo-data";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
 
