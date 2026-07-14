@@ -21,14 +21,15 @@ export const Route = createFileRoute("/portal")({
   head: () => ({ meta: [{ title: "My Altura — Portal" }] }),
 });
 
-const nav = [
+type NavItem = { to: string; label: string; icon: typeof LayoutDashboard; exact?: boolean };
+const nav: NavItem[] = [
   { to: "/portal", label: "Dashboard", icon: LayoutDashboard, exact: true },
   { to: "/portal/bundles", label: "Bundles & OTT", icon: Package },
   { to: "/portal/bills", label: "Bills", icon: Receipt },
   { to: "/portal/coverage", label: "Coverage", icon: MapPin },
   { to: "/portal/chat", label: "Talk to Priya", icon: MessageCircle },
   { to: "/portal/shield", label: "Fraud Shield", icon: ShieldCheck },
-] as const;
+];
 
 function PortalLayout() {
   const { user, logout } = useAuth();
