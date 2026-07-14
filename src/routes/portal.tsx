@@ -76,7 +76,7 @@ function PortalLayout() {
                 return (
                   <Link
                     key={item.to}
-                    to={item.to}
+                    to={item.to as never}
                     onClick={() => setOpen(false)}
                     className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition ${
                       active
