@@ -13,6 +13,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
+import { Route as PortalCoverageRouteImport } from './routes/portal.coverage'
 import { Route as PortalBundlesRouteImport } from './routes/portal.bundles'
 import { Route as PortalBillsRouteImport } from './routes/portal.bills'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
@@ -35,6 +36,11 @@ const IndexRoute = IndexRouteImport.update({
 const PortalIndexRoute = PortalIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalCoverageRoute = PortalCoverageRouteImport.update({
+  id: '/coverage',
+  path: '/coverage',
   getParentRoute: () => PortalRoute,
 } as any)
 const PortalBundlesRoute = PortalBundlesRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/api/chat': typeof ApiChatRoute
   '/portal/bills': typeof PortalBillsRoute
   '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/coverage': typeof PortalCoverageRoute
   '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/api/chat': typeof ApiChatRoute
   '/portal/bills': typeof PortalBillsRoute
   '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/coverage': typeof PortalCoverageRoute
   '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/api/chat': typeof ApiChatRoute
   '/portal/bills': typeof PortalBillsRoute
   '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/coverage': typeof PortalCoverageRoute
   '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/portal/bills'
     | '/portal/bundles'
+    | '/portal/coverage'
     | '/portal/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/portal/bills'
     | '/portal/bundles'
+    | '/portal/coverage'
     | '/portal'
   id:
     | '__root__'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/api/chat'
     | '/portal/bills'
     | '/portal/bundles'
+    | '/portal/coverage'
     | '/portal/'
   fileRoutesById: FileRoutesById
 }
@@ -146,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalIndexRouteImport
       parentRoute: typeof PortalRoute
     }
+    '/portal/coverage': {
+      id: '/portal/coverage'
+      path: '/coverage'
+      fullPath: '/portal/coverage'
+      preLoaderRoute: typeof PortalCoverageRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/portal/bundles': {
       id: '/portal/bundles'
       path: '/bundles'
@@ -173,12 +192,14 @@ declare module '@tanstack/react-router' {
 interface PortalRouteChildren {
   PortalBillsRoute: typeof PortalBillsRoute
   PortalBundlesRoute: typeof PortalBundlesRoute
+  PortalCoverageRoute: typeof PortalCoverageRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
 
 const PortalRouteChildren: PortalRouteChildren = {
   PortalBillsRoute: PortalBillsRoute,
   PortalBundlesRoute: PortalBundlesRoute,
+  PortalCoverageRoute: PortalCoverageRoute,
   PortalIndexRoute: PortalIndexRoute,
 }
 
