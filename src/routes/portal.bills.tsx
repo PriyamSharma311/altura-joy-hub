@@ -114,7 +114,23 @@ function BillsPage() {
                 <TableRow key={b.id}>
                   <TableCell className="font-medium">{b.month}</TableCell>
                   <TableCell>{b.bundle}</TableCell>
-                  <TableCell className="max-w-[200px] truncate text-muted-foreground">{b.ott.join(", ")}</TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-1.5">
+                      {b.ott.map((name) => {
+                        const opt = OTT_CATALOG.find((o) => o.name === name);
+                        if (!opt) return null;
+                        return (
+                          <span
+                            key={name}
+                            title={name}
+                            className="grid h-6 w-6 place-items-center rounded-md bg-white ring-1 ring-border/60"
+                          >
+                            <img src={ottLogoUrl(opt)} alt={name} loading="lazy" className="h-3.5 w-3.5 object-contain" />
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </TableCell>
                   <TableCell className="text-right">₹{b.amount.toLocaleString("en-IN")}</TableCell>
                   <TableCell>
                     <Badge variant={b.status === "Paid" ? "secondary" : "default"} className="rounded-full">
