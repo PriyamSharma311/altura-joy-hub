@@ -82,11 +82,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Altura Communications — One home, one bill, zero lock-in" },
       { name: "description", content: "Altura bundles broadband, postpaid SIM, OTT, payments and fraud protection for Indian households — pick your OTT, save every month, opt out any time." },
       { name: "author", content: "Altura Communications" },
-      { property: "og:title", content: "Altura Communications — Your connected home, simplified" },
-      { property: "og:description", content: "Broadband + SIM + OTT + Payments in one honest monthly bill. No lock-in. Real savings. Real people on chat." },
+      { property: "og:title", content: "Altura Communications — One home, one bill, zero lock-in" },
+      { property: "og:description", content: "Altura bundles broadband, postpaid SIM, OTT, payments and fraud protection for Indian households — pick your OTT, save every month, opt out any time." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Altura Communications — One home, one bill, zero lock-in" },
+      { name: "twitter:description", content: "Altura bundles broadband, postpaid SIM, OTT, payments and fraud protection for Indian households — pick your OTT, save every month, opt out any time." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2e3238cd-d5e1-4b2d-84e2-da91245bce2a/id-preview-2f2c681a--477a0c57-c1cc-4a31-86b5-bd95fd056011.lovable.app-1784007559108.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2e3238cd-d5e1-4b2d-84e2-da91245bce2a/id-preview-2f2c681a--477a0c57-c1cc-4a31-86b5-bd95fd056011.lovable.app-1784007559108.png" },
     ],
     links: [
       {
