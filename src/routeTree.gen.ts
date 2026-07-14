@@ -9,38 +9,165 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PortalRouteImport } from './routes/portal'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PortalIndexRouteImport } from './routes/portal.index'
+import { Route as PortalShieldRouteImport } from './routes/portal.shield'
+import { Route as PortalCoverageRouteImport } from './routes/portal.coverage'
+import { Route as PortalChatRouteImport } from './routes/portal.chat'
+import { Route as PortalBundlesRouteImport } from './routes/portal.bundles'
+import { Route as PortalBillsRouteImport } from './routes/portal.bills'
+import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const PortalRoute = PortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalShieldRoute = PortalShieldRouteImport.update({
+  id: '/shield',
+  path: '/shield',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalCoverageRoute = PortalCoverageRouteImport.update({
+  id: '/coverage',
+  path: '/coverage',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalChatRoute = PortalChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalBundlesRoute = PortalBundlesRouteImport.update({
+  id: '/bundles',
+  path: '/bundles',
+  getParentRoute: () => PortalRoute,
+} as any)
+const PortalBillsRoute = PortalBillsRouteImport.update({
+  id: '/bills',
+  path: '/bills',
+  getParentRoute: () => PortalRoute,
+} as any)
+const ApiChatRoute = ApiChatRouteImport.update({
+  id: '/api/chat',
+  path: '/api/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/portal': typeof PortalRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
+  '/portal/bills': typeof PortalBillsRoute
+  '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/chat': typeof PortalChatRoute
+  '/portal/coverage': typeof PortalCoverageRoute
+  '/portal/shield': typeof PortalShieldRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/api/chat': typeof ApiChatRoute
+  '/portal/bills': typeof PortalBillsRoute
+  '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/chat': typeof PortalChatRoute
+  '/portal/coverage': typeof PortalCoverageRoute
+  '/portal/shield': typeof PortalShieldRoute
+  '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/portal': typeof PortalRouteWithChildren
+  '/api/chat': typeof ApiChatRoute
+  '/portal/bills': typeof PortalBillsRoute
+  '/portal/bundles': typeof PortalBundlesRoute
+  '/portal/chat': typeof PortalChatRoute
+  '/portal/coverage': typeof PortalCoverageRoute
+  '/portal/shield': typeof PortalShieldRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/portal'
+    | '/api/chat'
+    | '/portal/bills'
+    | '/portal/bundles'
+    | '/portal/chat'
+    | '/portal/coverage'
+    | '/portal/shield'
+    | '/portal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/api/chat'
+    | '/portal/bills'
+    | '/portal/bundles'
+    | '/portal/chat'
+    | '/portal/coverage'
+    | '/portal/shield'
+    | '/portal'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/portal'
+    | '/api/chat'
+    | '/portal/bills'
+    | '/portal/bundles'
+    | '/portal/chat'
+    | '/portal/coverage'
+    | '/portal/shield'
+    | '/portal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  PortalRoute: typeof PortalRouteWithChildren
+  ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/portal': {
+      id: '/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof PortalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +175,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portal/': {
+      id: '/portal/'
+      path: '/'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/shield': {
+      id: '/portal/shield'
+      path: '/shield'
+      fullPath: '/portal/shield'
+      preLoaderRoute: typeof PortalShieldRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/coverage': {
+      id: '/portal/coverage'
+      path: '/coverage'
+      fullPath: '/portal/coverage'
+      preLoaderRoute: typeof PortalCoverageRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/chat': {
+      id: '/portal/chat'
+      path: '/chat'
+      fullPath: '/portal/chat'
+      preLoaderRoute: typeof PortalChatRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/bundles': {
+      id: '/portal/bundles'
+      path: '/bundles'
+      fullPath: '/portal/bundles'
+      preLoaderRoute: typeof PortalBundlesRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/portal/bills': {
+      id: '/portal/bills'
+      path: '/bills'
+      fullPath: '/portal/bills'
+      preLoaderRoute: typeof PortalBillsRouteImport
+      parentRoute: typeof PortalRoute
+    }
+    '/api/chat': {
+      id: '/api/chat'
+      path: '/api/chat'
+      fullPath: '/api/chat'
+      preLoaderRoute: typeof ApiChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface PortalRouteChildren {
+  PortalBillsRoute: typeof PortalBillsRoute
+  PortalBundlesRoute: typeof PortalBundlesRoute
+  PortalChatRoute: typeof PortalChatRoute
+  PortalCoverageRoute: typeof PortalCoverageRoute
+  PortalShieldRoute: typeof PortalShieldRoute
+  PortalIndexRoute: typeof PortalIndexRoute
+}
+
+const PortalRouteChildren: PortalRouteChildren = {
+  PortalBillsRoute: PortalBillsRoute,
+  PortalBundlesRoute: PortalBundlesRoute,
+  PortalChatRoute: PortalChatRoute,
+  PortalCoverageRoute: PortalCoverageRoute,
+  PortalShieldRoute: PortalShieldRoute,
+  PortalIndexRoute: PortalIndexRoute,
+}
+
+const PortalRouteWithChildren =
+  PortalRoute._addFileChildren(PortalRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  PortalRoute: PortalRouteWithChildren,
+  ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
