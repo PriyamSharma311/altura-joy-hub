@@ -13,6 +13,7 @@ import { Route as PortalRouteImport } from './routes/portal'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PortalIndexRouteImport } from './routes/portal.index'
+import { Route as PortalBundlesRouteImport } from './routes/portal.bundles'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
 const PortalRoute = PortalRouteImport.update({
@@ -35,6 +36,11 @@ const PortalIndexRoute = PortalIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PortalRoute,
 } as any)
+const PortalBundlesRoute = PortalBundlesRouteImport.update({
+  id: '/bundles',
+  path: '/bundles',
+  getParentRoute: () => PortalRoute,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -46,12 +52,14 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/portal': typeof PortalRouteWithChildren
   '/api/chat': typeof ApiChatRoute
+  '/portal/bundles': typeof PortalBundlesRoute
   '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/api/chat': typeof ApiChatRoute
+  '/portal/bundles': typeof PortalBundlesRoute
   '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
@@ -60,14 +68,28 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/portal': typeof PortalRouteWithChildren
   '/api/chat': typeof ApiChatRoute
+  '/portal/bundles': typeof PortalBundlesRoute
   '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/portal' | '/api/chat' | '/portal/'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/portal'
+    | '/api/chat'
+    | '/portal/bundles'
+    | '/portal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/api/chat' | '/portal'
-  id: '__root__' | '/' | '/login' | '/portal' | '/api/chat' | '/portal/'
+  to: '/' | '/login' | '/api/chat' | '/portal/bundles' | '/portal'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/portal'
+    | '/api/chat'
+    | '/portal/bundles'
+    | '/portal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -107,6 +129,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortalIndexRouteImport
       parentRoute: typeof PortalRoute
     }
+    '/portal/bundles': {
+      id: '/portal/bundles'
+      path: '/bundles'
+      fullPath: '/portal/bundles'
+      preLoaderRoute: typeof PortalBundlesRouteImport
+      parentRoute: typeof PortalRoute
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -118,10 +147,12 @@ declare module '@tanstack/react-router' {
 }
 
 interface PortalRouteChildren {
+  PortalBundlesRoute: typeof PortalBundlesRoute
   PortalIndexRoute: typeof PortalIndexRoute
 }
 
 const PortalRouteChildren: PortalRouteChildren = {
+  PortalBundlesRoute: PortalBundlesRoute,
   PortalIndexRoute: PortalIndexRoute,
 }
 
