@@ -1,29 +1,18 @@
 import type { OttOption } from "@/lib/demo-data";
 
-/** Brand initials shown on the tile — trimmed to 1–2 chars for legibility. */
-const INITIALS: Record<string, string> = {
-  netflix: "N",
-  prime: "pv",
-  hotstar: "JH",
-  zee5: "Z5",
-  sonyliv: "SL",
-  appletv: "tv",
-  chatgpt: "AI",
-  linkedin: "in",
-  spotify: "S",
-  youtube: "YT",
+const LOGOS: Record<string, string> = {
+  netflix: "/__l5e/assets-v1/0c786f39-cf6a-4c6d-a657-076baf1351e7/netflix.svg",
+  prime: "/__l5e/assets-v1/61b35872-3396-41b3-b5d9-77cddb56b6a2/prime-video.svg",
+  hotstar: "/__l5e/assets-v1/078bb446-5a0a-482d-827a-fe067cf2a4f1/jiohotstar.png",
+  zee5: "/__l5e/assets-v1/c17a208c-8ee7-4db5-8799-3cb90e6a9474/zee5.svg",
+  sonyliv: "/__l5e/assets-v1/6918faec-87b7-4555-8c80-9fff17ae6523/sonyliv.png",
+  appletv: "/__l5e/assets-v1/5640f94c-6ce2-426b-9def-c2d1912f376f/appletv.svg",
+  chatgpt: "/__l5e/assets-v1/65fdf3f8-5625-432c-bde9-073c2d6f3875/chatgpt.svg",
+  linkedin: "/__l5e/assets-v1/620147ed-595f-494a-b0b0-7b6e457ceb15/linkedin.svg",
+  spotify: "/__l5e/assets-v1/c1958231-5b92-42c9-9208-4eb2619315f0/spotify.svg",
+  youtube: "/__l5e/assets-v1/ff07ca9d-2e55-4926-924d-2d1342d85290/youtube.svg",
 };
 
-function readable(hex: string): string {
-  const h = hex.replace("#", "");
-  const r = parseInt(h.slice(0, 2), 16);
-  const g = parseInt(h.slice(2, 4), 16);
-  const b = parseInt(h.slice(4, 6), 16);
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq > 160 ? "#0b0b0b" : "#ffffff";
-}
-
-/** Self-contained brand tile — no network fetch, always renders. */
 export function OttLogo({
   option,
   size = 20,
@@ -33,32 +22,20 @@ export function OttLogo({
   size?: number;
   rounded?: number;
 }) {
-  const label = INITIALS[option.id] ?? option.name.slice(0, 2);
-  const fg = readable(option.color);
-  const fontSize = label.length > 1 ? size * 0.5 : size * 0.62;
+  const src = LOGOS[option.id];
+
+  if (!src) return null;
+
   return (
-    <svg
+    <img
+      src={src}
+      alt={`${option.name} logo`}
       width={size}
       height={size}
-      viewBox="0 0 40 40"
-      role="img"
-      aria-label={`${option.name} logo`}
-      style={{ display: "block" }}
-    >
-      <rect width="40" height="40" rx={rounded} ry={rounded} fill={option.color} />
-      <text
-        x="50%"
-        y="50%"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill={fg}
-        fontFamily="'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif"
-        fontWeight={800}
-        fontSize={fontSize * (40 / size)}
-        letterSpacing="-0.02em"
-      >
-        {label}
-      </text>
-    </svg>
+      loading="lazy"
+      decoding="async"
+      className="block object-contain"
+      style={{ width: size, height: size, borderRadius: rounded }}
+    />
   );
 }
