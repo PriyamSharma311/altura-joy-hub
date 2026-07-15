@@ -51,6 +51,9 @@ function BundlesPage() {
         <p className="mt-2 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
           <Unlock className="h-4 w-4 text-primary" /> No lock-in. Change or cancel anything from your portal, any time.
         </p>
+        <div className="mt-4 inline-flex flex-wrap items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
+          <Crown className="h-4 w-4" /> Premium yearly offer: Creator & Ultra customers get 13 months for the price of 12.
+        </div>
       </header>
 
       {/* Bundle cards */}
@@ -75,6 +78,11 @@ function BundlesPage() {
                   {b.badge}
                 </span>
               )}
+              {(b.id === "creator" || b.id === "ultra") && (
+                <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                  <Crown className="h-3 w-3" /> 12+1
+                </span>
+              )}
               <div className="text-xs font-medium text-muted-foreground">{b.name.replace("Altura ", "")}</div>
               <div className="mt-2 text-2xl font-semibold tracking-tight">₹{b.price}<span className="text-xs font-normal text-muted-foreground">/mo</span></div>
               <div className="mt-1 text-[11px] text-muted-foreground">{b.tagline}</div>
@@ -86,6 +94,11 @@ function BundlesPage() {
               <div className="mt-3 rounded-lg bg-secondary/50 px-2 py-1 text-[11px] text-secondary-foreground">
                 <Gift className="mr-1 inline h-3 w-3" />₹{b.cashback}/mo cashback
               </div>
+              {(b.id === "creator" || b.id === "ultra") && (
+                <div className="mt-2 rounded-lg bg-primary/5 px-2 py-1 text-[11px] font-medium text-primary">
+                  Yearly plan includes 1 bonus month
+                </div>
+              )}
             </button>
           );
         })}
@@ -152,7 +165,7 @@ function BundlesPage() {
               <div className="text-sm">
                 Pay yearly {isPremium ? (
                   <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
-                    <Crown className="h-3 w-3" /> 12 + 1 free
+                    <Crown className="h-3 w-3" /> 13 months at 12-month price
                   </span>
                 ) : (
                   <span className="text-muted-foreground">(10% off)</span>
@@ -161,13 +174,13 @@ function BundlesPage() {
               <Switch checked={yearly} onCheckedChange={setYearly} />
             </div>
 
-            {yearly && isPremium && (
+            {isPremium && (
               <div className="mt-3 rounded-xl border border-primary/30 bg-primary/5 p-3 text-xs text-foreground/80">
                 <div className="flex items-center gap-1.5 font-medium text-primary">
                   <Crown className="h-3.5 w-3.5" /> Premium 12 + 1 offer
                 </div>
                 <p className="mt-1">
-                  Pay for 12 months, enjoy <span className="font-semibold">13 full months</span> of service. That's an extra ₹{Math.round(bonusMonth).toLocaleString("en-IN")} of value — a real 1-month saving on top of your bundle discount.
+                  Pay for 12 months, enjoy <span className="font-semibold">13 full months</span> of service. Turn on yearly billing to unlock an extra ₹{Math.round(monthly).toLocaleString("en-IN")} of real bonus-month value.
                 </p>
               </div>
             )}

@@ -3,27 +3,20 @@ export type OttOption = {
   name: string;
   monthly: number;
   color: string;
-  /** Domain used for the brand's favicon (served via Google's favicon service). */
-  domain: string;
 };
 
 export const OTT_CATALOG: OttOption[] = [
-  { id: "netflix",  name: "Netflix",           monthly: 649,  color: "#E50914", domain: "netflix.com" },
-  { id: "prime",    name: "Prime Video",       monthly: 299,  color: "#00A8E1", domain: "primevideo.com" },
-  { id: "hotstar",  name: "JioHotstar",        monthly: 299,  color: "#1F80E0", domain: "hotstar.com" },
-  { id: "zee5",     name: "ZEE5",              monthly: 199,  color: "#8B1FCB", domain: "zee5.com" },
-  { id: "sonyliv",  name: "Sony LIV",          monthly: 299,  color: "#0F1FA8", domain: "sonyliv.com" },
-  { id: "appletv",  name: "Apple TV+",         monthly: 99,   color: "#111111", domain: "tv.apple.com" },
-  { id: "chatgpt",  name: "ChatGPT Plus",      monthly: 1999, color: "#10A37F", domain: "openai.com" },
-  { id: "linkedin", name: "LinkedIn Premium",  monthly: 1099, color: "#0A66C2", domain: "linkedin.com" },
-  { id: "spotify",  name: "Spotify Premium",   monthly: 119,  color: "#1DB954", domain: "spotify.com" },
-  { id: "youtube",  name: "YouTube Premium",   monthly: 149,  color: "#FF0000", domain: "youtube.com" },
+  { id: "netflix",  name: "Netflix",           monthly: 649,  color: "#E50914" },
+  { id: "prime",    name: "Prime Video",       monthly: 299,  color: "#00A8E1" },
+  { id: "hotstar",  name: "JioHotstar",        monthly: 299,  color: "#1F80E0" },
+  { id: "zee5",     name: "ZEE5",              monthly: 199,  color: "#8B1FCB" },
+  { id: "sonyliv",  name: "Sony LIV",          monthly: 299,  color: "#0F1FA8" },
+  { id: "appletv",  name: "Apple TV+",         monthly: 99,   color: "#111111" },
+  { id: "chatgpt",  name: "ChatGPT Plus",      monthly: 1999, color: "#10A37F" },
+  { id: "linkedin", name: "LinkedIn Premium",  monthly: 1099, color: "#0A66C2" },
+  { id: "spotify",  name: "Spotify Premium",   monthly: 119,  color: "#1DB954" },
+  { id: "youtube",  name: "YouTube Premium",   monthly: 149,  color: "#FF0000" },
 ];
-
-/** Real brand logo URL for an OTT option. Uses Google's favicon service (reliable, no key). */
-export function ottLogoUrl(o: OttOption): string {
-  return `https://www.google.com/s2/favicons?domain=${o.domain}&sz=128`;
-}
 
 export type Bundle = {
   id: string;
