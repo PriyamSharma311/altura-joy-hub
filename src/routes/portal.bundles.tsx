@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { BUNDLES, OTT_CATALOG, ottLogoUrl, type Bundle } from "@/lib/demo-data";
-import { Check, Gift, Sparkles, Unlock } from "lucide-react";
+import { Check, Gift, Sparkles, Unlock, Crown } from "lucide-react";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/portal/bundles")({
@@ -31,7 +31,10 @@ function BundlesPage() {
   };
 
   const monthly = selected.price + (addShield ? 99 : 0);
-  const total = yearly ? monthly * 12 * 0.9 : monthly;
+  const isPremium = selected.id === "creator" || selected.id === "ultra";
+  // Premium 12+1: pay 12 months, get 13 months of service. Non-premium yearly: 10% off.
+  const total = yearly ? (isPremium ? monthly * 12 : monthly * 12 * 0.9) : monthly;
+  const bonusMonth = yearly && isPremium ? monthly : 0;
   const separately = useMemo(() => {
     const ottSum = ott.reduce((s, id) => s + (OTT_CATALOG.find((o) => o.id === id)?.monthly ?? 0), 0);
     // rough per-service standalone estimate
@@ -150,9 +153,28 @@ function BundlesPage() {
             </div>
 
             <div className="mt-4 flex items-center justify-between rounded-xl bg-secondary/40 p-3">
-              <div className="text-sm">Pay yearly (10% off)</div>
+              <div className="text-sm">
+                Pay yearly {isPremium ? (
+                  <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">
+                    <Crown className="h-3 w-3" /> 12 + 1 free
+                  </span>
+                ) : (
+                  <span className="text-muted-foreground">(10% off)</span>
+                )}
+              </div>
               <Switch checked={yearly} onCheckedChange={setYearly} />
             </div>
+
+            {yearly && isPremium && (
+              <div className="mt-3 rounded-xl border border-primary/30 bg-primary/5 p-3 text-xs text-foreground/80">
+                <div className="flex items-center gap-1.5 font-medium text-primary">
+                  <Crown className="h-3.5 w-3.5" /> Premium 12 + 1 offer
+                </div>
+                <p className="mt-1">
+                  Pay for 12 months, enjoy <span className="font-semibold">13 full months</span> of service. That's an extra ₹{Math.round(bonusMonth).toLocaleString("en-IN")} of value — a real 1-month saving on top of your bundle discount.
+                </p>
+              </div>
+            )}
 
             <div className="mt-6 border-t border-border/60 pt-4">
               <div className="flex items-baseline justify-between">
@@ -166,9 +188,15 @@ function BundlesPage() {
                 <span>Buying separately</span>
                 <span className="line-through">₹{separately.toLocaleString("en-IN")}/mo</span>
               </div>
+              {yearly && isPremium && (
+                <div className="mt-1 flex items-baseline justify-between text-xs text-primary">
+                  <span>Bonus month included</span>
+                  <span className="font-semibold">+₹{Math.round(bonusMonth).toLocaleString("en-IN")} value</span>
+                </div>
+              )}
               <div className="mt-3 rounded-xl bg-[color:var(--savings)]/15 p-3 text-sm">
                 <Sparkles className="mr-1 inline h-4 w-4 text-[color:var(--savings)]" />
-                You save <span className="font-semibold">₹{save.toLocaleString("en-IN")}/mo</span> · ₹{(save * 12).toLocaleString("en-IN")}/year
+                You save <span className="font-semibold">₹{save.toLocaleString("en-IN")}/mo</span> · ₹{(save * 12 + bonusMonth).toLocaleString("en-IN")}/year
               </div>
               <Button className="mt-5 w-full rounded-full" size="lg" onClick={() => toast.success("Bundle activated (demo)", { description: `${selected.name} is live on your account.` })}>
                 Activate bundle
