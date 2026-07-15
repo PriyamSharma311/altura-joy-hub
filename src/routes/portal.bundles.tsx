@@ -4,7 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
-import { BUNDLES, OTT_CATALOG, ottLogoUrl, type Bundle } from "@/lib/demo-data";
+import { BUNDLES, OTT_CATALOG, type Bundle } from "@/lib/demo-data";
+import { OttLogo } from "@/components/ott-logo";
 import { Check, Gift, Sparkles, Unlock, Crown } from "lucide-react";
 import { toast } from "sonner";
 
@@ -113,12 +114,7 @@ function BundlesPage() {
                     }`}
                   >
                     <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white ring-1 ring-border/60">
-                      <img
-                        src={ottLogoUrl(o)}
-                        alt={`${o.name} logo`}
-                        loading="lazy"
-                        className="h-5 w-5 object-contain"
-                      />
+                      <OttLogo option={o} size={22} />
                     </span>
                     <div className="flex-1">
                       <div className="text-sm font-medium">{o.name}</div>
