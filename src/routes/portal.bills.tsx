@@ -6,7 +6,8 @@ import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from "@/components/ui/table";
 import { Download, FileDown, Receipt } from "lucide-react";
-import { DEMO_BILLS, OTT_CATALOG, ottLogoUrl, type Bill } from "@/lib/demo-data";
+import { DEMO_BILLS, OTT_CATALOG, type Bill } from "@/lib/demo-data";
+import { OttLogo } from "@/components/ott-logo";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
 
@@ -125,7 +126,7 @@ function BillsPage() {
                             title={name}
                             className="grid h-6 w-6 place-items-center rounded-md bg-white ring-1 ring-border/60"
                           >
-                            <img src={ottLogoUrl(opt)} alt={name} loading="lazy" className="h-3.5 w-3.5 object-contain" />
+                            <OttLogo option={opt} size={16} rounded={4} />
                           </span>
                         );
                       })}
