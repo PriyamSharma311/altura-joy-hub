@@ -271,3 +271,190 @@ function Footer() {
   );
 }
 
+function MarqueeBand() {
+  const items = [
+    "no lock-in, ever",
+    "one bill, ten seconds to read",
+    "real humans on chat",
+    "₹947 avg saving / month",
+    "5G+ in 18 cities",
+    "swap OTT any day",
+    "cashback that stacks",
+    "fraud shield up to ₹2L",
+  ];
+  const loop = [...items, ...items];
+  return (
+    <div className="border-y border-border/60 bg-white/60 py-4 overflow-hidden">
+      <div className="flex whitespace-nowrap animate-[marquee_38s_linear_infinite] gap-10 text-sm font-medium">
+        {loop.map((t, i) => (
+          <span key={i} className="flex items-center gap-2 text-muted-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-primary" /> {t}
+          </span>
+        ))}
+      </div>
+      <style>{`@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }`}</style>
+    </div>
+  );
+}
+
+function HowItWorks() {
+  const steps = [
+    { n: "01", icon: MousePointerClick, title: "Pick a base", desc: "Broadband, SIM, or both. Start where you are." },
+    { n: "02", icon: Tv, title: "Add what you use", desc: "The OTT you actually watch. UPI cashback. Fraud Shield if you want it." },
+    { n: "03", icon: PartyPopper, title: "Pay once, feel richer", desc: "One clean bill on the 15th. Cashback lands the same day." },
+  ];
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mb-12 max-w-2xl">
+        <div className="text-sm font-medium uppercase tracking-widest text-primary">How it works</div>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Three steps. Zero paperwork.</h2>
+      </div>
+      <div className="grid gap-5 md:grid-cols-3">
+        {steps.map((s) => (
+          <div key={s.n} className="relative rounded-2xl border border-border/60 bg-white/70 p-6 shadow-[var(--shadow-card)]">
+            <div className="text-5xl font-semibold tracking-tighter text-primary/15">{s.n}</div>
+            <div className="mt-2 flex items-center gap-2">
+              <s.icon className="h-5 w-5 text-primary" />
+              <div className="text-lg font-semibold">{s.title}</div>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function BuiltForYou() {
+  const personas = [
+    { emoji: "🎧", title: "The cafe worker", pick: "Altura Metro", line: "500 Mbps at home, Spotify on the walk, Zomato credits for the 4pm rescue." },
+    { emoji: "🎬", title: "The weekend binger", pick: "Altura Duo", line: "Two OTT slots to swap between Netflix drops and Prime cricket weekends." },
+    { emoji: "👨‍👩‍👧", title: "The full household", pick: "Altura Family", line: "1 Gbps for four devices, three OTT apps, UPI cashback that pays for pizza." },
+    { emoji: "💼", title: "The builder", pick: "Altura Creator", line: "ChatGPT Plus, LinkedIn Premium, one OTT for the doom-scroll break." },
+  ];
+  return (
+    <section className="bg-white py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <div className="text-sm font-medium uppercase tracking-widest text-primary">Built for you</div>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Find the you-shaped bundle.</h2>
+          </div>
+          <div className="text-sm text-muted-foreground">Not sure? Chat with Priya. She's actually helpful.</div>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {personas.map((p) => (
+            <div key={p.title} className="rounded-2xl border border-border/60 bg-secondary/30 p-6 transition hover:border-primary/40 hover:bg-white">
+              <div className="text-3xl">{p.emoji}</div>
+              <div className="mt-3 text-base font-semibold">{p.title}</div>
+              <div className="mt-1 text-xs font-medium uppercase tracking-wider text-primary">{p.pick}</div>
+              <p className="mt-3 text-sm text-muted-foreground">{p.line}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const quotes = [
+    { name: "Ananya, 28", city: "Bengaluru", text: "Cancelled three subscriptions in one afternoon. My bill went down. Nobody called to guilt me. Elite." },
+    { name: "Kabir, 32", city: "Mumbai", text: "The chat person answered in 40 seconds at 11pm. I've had worse conversations with actual friends." },
+    { name: "Riya, 26", city: "Pune", text: "The savings number on the dashboard hits different. It's like a tiny dopamine bump every month." },
+  ];
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <div className="mb-12 flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div className="text-sm font-medium uppercase tracking-widest text-primary">In their words</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">People who left three apps behind.</h2>
+        </div>
+        <div className="flex items-center gap-1 text-sm text-muted-foreground">
+          {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-primary text-primary" />)}
+          <span className="ml-2">4.8 average · 12,000+ reviews</span>
+        </div>
+      </div>
+      <div className="grid gap-5 md:grid-cols-3">
+        {quotes.map((q) => (
+          <Card key={q.name} className="border-border/60 bg-white shadow-[var(--shadow-card)]">
+            <CardContent className="p-6">
+              <Quote className="h-6 w-6 text-primary/40" />
+              <p className="mt-3 text-sm leading-relaxed text-foreground/85">"{q.text}"</p>
+              <div className="mt-5 text-sm font-medium">{q.name}</div>
+              <div className="text-xs text-muted-foreground">{q.city}</div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FAQ() {
+  const qs = [
+    { q: "What does 'no lock-in' actually mean?", a: "Exactly what it sounds like. Cancel any service on any day. We pro-rate to the hour and refund to the source." },
+    { q: "Can I keep my current SIM number?", a: "Yes. Port-in takes about a week and we handle the paperwork. Your OTT and WiFi go live the same day you sign up." },
+    { q: "Is the chat really a human?", a: "There's a real senior executive backing every conversation. Our assistant helps them move faster so you don't wait." },
+    { q: "What if my internet slows down?", a: "Our latency guard notices before you do. You'll see a heads-up on the dashboard and we auto-reroute you to a faster path." },
+  ];
+  return (
+    <section className="bg-secondary/30 py-20">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="mb-10 text-center">
+          <div className="text-sm font-medium uppercase tracking-widest text-primary">Straight answers</div>
+          <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">The questions everyone actually asks.</h2>
+        </div>
+        <div className="space-y-3">
+          {qs.map((item) => (
+            <details key={item.q} className="group rounded-2xl border border-border/60 bg-white p-5 open:shadow-[var(--shadow-soft)]">
+              <summary className="flex cursor-pointer items-center justify-between text-base font-medium">
+                {item.q}
+                <span className="ml-4 grid h-7 w-7 place-items-center rounded-full bg-secondary text-secondary-foreground transition group-open:rotate-45">
+                  <span className="text-lg leading-none">+</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-sm text-muted-foreground">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FinalCTA() {
+  return (
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <div className="relative overflow-hidden rounded-[2rem] p-12 text-center md:p-16" style={{ background: "var(--gradient-hero)" }}>
+        <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+        <div className="relative">
+          <div className="mx-auto flex w-fit items-center gap-2 rounded-full border border-border/60 bg-white/70 px-4 py-1.5 text-xs font-medium text-primary backdrop-blur">
+            <Zap className="h-3.5 w-3.5" /> Setup in under 10 minutes
+          </div>
+          <h2 className="mt-6 text-3xl font-semibold tracking-tight md:text-5xl">Your next bill can be smaller. Really.</h2>
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            Pick your bundle, tell us which OTT you want, and we'll show you the exact rupees you'll keep every month.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link to="/portal/bundles">
+              <Button size="lg" className="rounded-full shadow-lg">Build my bundle <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            </Link>
+            <Link to="/portal">
+              <Button size="lg" variant="outline" className="rounded-full bg-white/60 backdrop-blur">
+                Peek at the portal
+              </Button>
+            </Link>
+          </div>
+          <div className="mt-6 flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> No credit card to start</span>
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Cancel any service any day</span>
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-primary" /> Real humans on chat</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
