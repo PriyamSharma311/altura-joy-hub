@@ -53,6 +53,23 @@ export const BUNDLES: Bundle[] = [
     badge: "Popular",
   },
   {
+    id: "metro",
+    name: "Altura Metro",
+    tagline: "For weekend bingers, gym-goers and cafe workers",
+    price: 1149,
+    standalone: 2196,
+    includes: [
+      "500 Mbps WiFi",
+      "Postpaid SIM · 100 GB",
+      "Spotify Premium",
+      "2 OTT of your choice",
+      "Swiggy + Zomato ₹150 monthly credits",
+    ],
+    ottSlots: 2,
+    cashback: 100,
+    badge: "For 25–34",
+  },
+  {
     id: "family",
     name: "Altura Family",
     tagline: "Broadband + SIM + Payments + 3 OTT",
