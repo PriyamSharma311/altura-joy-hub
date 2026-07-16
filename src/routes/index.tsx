@@ -15,6 +15,12 @@ import {
   PiggyBank,
   HeartHandshake,
   Gauge,
+  Quote,
+  Zap,
+  MousePointerClick,
+  PartyPopper,
+  Check,
+  Star,
 } from "lucide-react";
 import { BUNDLES } from "@/lib/demo-data";
 import heroImg from "@/assets/hero.jpg";
@@ -28,9 +34,15 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <MarqueeBand />
       <Benefits />
+      <HowItWorks />
       <BundlePreview />
+      <BuiltForYou />
       <SavingsBand />
+      <Testimonials />
+      <FAQ />
+      <FinalCTA />
       <Footer />
     </div>
   );
