@@ -28,7 +28,6 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
-      <TrustStrip />
       <Benefits />
       <BundlePreview />
       <SavingsBand />
