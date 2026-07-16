@@ -28,7 +28,6 @@ function Landing() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
-      <TrustStrip />
       <Benefits />
       <BundlePreview />
       <SavingsBand />
@@ -73,16 +72,16 @@ function Hero() {
     <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
         <div className="flex flex-col justify-center">
-          <Badge variant="secondary" className="mb-5 w-fit rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground shadow-sm">
-            <Unlock className="mr-1.5 h-3 w-3" /> No lock-in · cancel any service any time
-          </Badge>
           <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
             One home.<br />
             One honest bill.<br />
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Everything connected.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-            Broadband, postpaid SIM, the OTT apps you actually watch, payments, and fraud protection — bundled how <em>you</em> want it. Real savings, real people, no fine print.
+            Your WiFi, your SIM, the shows you actually binge, your UPI, and a safety net for the scary stuff. All on one bill you can read in ten seconds, with a real person on chat who actually helps.
+          </p>
+          <p className="mt-3 max-w-lg text-sm text-muted-foreground">
+            Keep what you love, drop what you don't, any day of the month. That's it. That's the pitch.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/portal/bundles">
@@ -149,7 +148,7 @@ function Benefits() {
     <section id="benefits" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 max-w-2xl">
         <div className="text-sm font-medium uppercase tracking-widest text-primary">Benefits</div>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Everything a modern Indian home needs — under one honest bill.</h2>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Everything a modern Indian home actually needs, on one honest bill.</h2>
       </div>
       <div className="grid gap-5 md:grid-cols-3">
         {items.map((it) => (
@@ -175,7 +174,7 @@ function BundlePreview() {
         <div className="mb-12 flex items-end justify-between">
           <div>
             <div className="text-sm font-medium uppercase tracking-widest text-primary">Bundles</div>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Mix and match — you're always in control.</h2>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Mix, match, and change your mind whenever.</h2>
           </div>
           <Link to="/portal/bundles" className="hidden text-sm font-medium text-primary hover:underline md:block">
             Build your own →
@@ -215,7 +214,7 @@ function SavingsBand() {
             <div className="text-sm font-medium uppercase tracking-widest text-primary">Why one provider?</div>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">More services = <span className="text-[color:var(--savings)]">smaller</span> bill.</h2>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Everyone worries stacking services makes bills heavier. Altura flips that — every service you add reduces your total. We publish the math on your dashboard, every month.
+              Most people assume more services means a heavier bill. With Altura, every service you add actually pulls the total down. We show the exact math on your dashboard every month, no asterisks, no small print.
             </p>
             <Link to="/portal" className="mt-6 inline-block">
               <Button size="lg" className="rounded-full">See your savings dashboard <ArrowRight className="ml-2 h-4 w-4" /></Button>
