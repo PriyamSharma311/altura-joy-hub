@@ -148,7 +148,7 @@ function Benefits() {
     <section id="benefits" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 max-w-2xl">
         <div className="text-sm font-medium uppercase tracking-widest text-primary">Benefits</div>
-        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Everything a modern Indian home needs — under one honest bill.</h2>
+        <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Everything a modern Indian home actually needs, on one honest bill.</h2>
       </div>
       <div className="grid gap-5 md:grid-cols-3">
         {items.map((it) => (
@@ -174,7 +174,7 @@ function BundlePreview() {
         <div className="mb-12 flex items-end justify-between">
           <div>
             <div className="text-sm font-medium uppercase tracking-widest text-primary">Bundles</div>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Mix and match — you're always in control.</h2>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Mix, match, and change your mind whenever.</h2>
           </div>
           <Link to="/portal/bundles" className="hidden text-sm font-medium text-primary hover:underline md:block">
             Build your own →
@@ -214,7 +214,7 @@ function SavingsBand() {
             <div className="text-sm font-medium uppercase tracking-widest text-primary">Why one provider?</div>
             <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">More services = <span className="text-[color:var(--savings)]">smaller</span> bill.</h2>
             <p className="mt-4 max-w-md text-muted-foreground">
-              Everyone worries stacking services makes bills heavier. Altura flips that — every service you add reduces your total. We publish the math on your dashboard, every month.
+              Most people assume more services means a heavier bill. With Altura, every service you add actually pulls the total down. We show the exact math on your dashboard every month, no asterisks, no small print.
             </p>
             <Link to="/portal" className="mt-6 inline-block">
               <Button size="lg" className="rounded-full">See your savings dashboard <ArrowRight className="ml-2 h-4 w-4" /></Button>
