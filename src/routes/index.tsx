@@ -285,7 +285,7 @@ function MarqueeBand() {
   const loop = [...items, ...items];
   return (
     <div className="border-y border-border/60 bg-white/60 py-4 overflow-hidden">
-      <div className="flex whitespace-nowrap animate-[marquee_38s_linear_infinite] gap-10 text-sm font-medium">
+      <div className="flex w-max whitespace-nowrap gap-10 pl-10 text-sm font-medium animate-[marquee_38s_linear_infinite]">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-2 text-muted-foreground">
             <Sparkles className="h-3.5 w-3.5 text-primary" /> {t}
