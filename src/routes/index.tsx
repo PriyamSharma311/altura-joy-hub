@@ -72,16 +72,16 @@ function Hero() {
     <section className="relative overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
         <div className="flex flex-col justify-center">
-          <Badge variant="secondary" className="mb-5 w-fit rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-foreground shadow-sm">
-            <Unlock className="mr-1.5 h-3 w-3" /> No lock-in · cancel any service any time
-          </Badge>
           <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
             One home.<br />
             One honest bill.<br />
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Everything connected.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg text-muted-foreground">
-            Broadband, postpaid SIM, the OTT apps you actually watch, payments, and fraud protection — bundled how <em>you</em> want it. Real savings, real people, no fine print.
+            Your WiFi, your SIM, the shows you actually binge, your UPI, and a safety net for the scary stuff. All on one bill you can read in ten seconds, with a real person on chat who actually helps.
+          </p>
+          <p className="mt-3 max-w-lg text-sm text-muted-foreground">
+            Keep what you love, drop what you don't, any day of the month. That's it. That's the pitch.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link to="/portal/bundles">
