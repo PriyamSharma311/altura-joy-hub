@@ -67,7 +67,7 @@ export const BUNDLES: Bundle[] = [
     ],
     ottSlots: 2,
     cashback: 100,
-    badge: "For 25–34",
+    badge: "City Mode",
   },
   {
     id: "family",
